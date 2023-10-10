@@ -1,14 +1,20 @@
 import { SchemaFieldTypes, createClient } from 'redis';
 
-const goodsSchema = {
-    'vendor': '',
-    'articul': '',
-    'date': '',
-    'price': 0,
-    'quantity': 0,
+const client = createClient();
+
+client.on('error', err => console.log('Redis Client Error', err));
+
+const articul = 'testArticul'; //need to fetch
+
+
+const testItem = {
+    'vendor': 'GM',
+    'date': '10.10.2023',
+    'price': 9000,
+    'quantity': 3,
 };
 
-const pushToBase = async () => {
+const createSchema = async () => {
     try {
         await client.ft.create('idx:articuls', {
             '$.vendor': {
@@ -40,7 +46,12 @@ const pushToBase = async () => {
     }
 };
 
-const client = createClient();
-client.on('error', err => console.log('Redis Client Error', err));
-
+const pushToBase = async (articul, object) => {
+    try {
+        await client.json.set(articul, '$', object); 
+    } catch(e) {
+        console.log(e);
+    }
+};
+//to do: add main func for test 
 await client.connect();
