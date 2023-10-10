@@ -10,13 +10,7 @@ const getPriceByArticul = () => {
     //request for redis
 }
 
-const goodsSchema = {
-    'vendor': '',
-    'articul': '',
-    'date': '',
-    'price': 0,
-    'quantity': 0
-}
+
 
 const main = async() => {
     const client = createClient();  
