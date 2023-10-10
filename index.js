@@ -18,6 +18,10 @@ const goodsSchema = {
     'quantity': 0
 }
 
+const goodsObject = () => {
+    
+}
+
 const main = async() => {
     const client = createClient();  
     let userSession = await client.hGetAll('user-session:123');
