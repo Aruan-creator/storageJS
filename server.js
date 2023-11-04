@@ -31,8 +31,14 @@ const cacheFolder = (path) => {
     });
 };
 
+const watch = (path) => {
+    fs.watch(path, (event, file) => {
+        cacheFile(file);
+    });
+};
+
 cacheFolder(apiPath);
-fs.watch(apiPath);
+watch(apiPath);
 
 setTimeout(() => {
     console.dir({ api });
