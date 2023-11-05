@@ -6,7 +6,7 @@ const http = require('node:http');
 
 const api = new Map();
 
-const apiPath = './api';
+const apiPath = './api/';
 
 const cacheFile = (name) => {
     const filePath = apiPath + name;

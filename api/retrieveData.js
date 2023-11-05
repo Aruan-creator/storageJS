@@ -2,7 +2,7 @@
 
 const { pool } = require('../config/db');
 
-const retrieveData = async () => {
+module.exports = async () => {
     try {
         const res = await pool.query('SELECT * FROM shark');
         console.log(res.rows);
@@ -10,5 +10,3 @@ const retrieveData = async () => {
         console.error(error);
     }
 };
-
-retrieveData(); 
