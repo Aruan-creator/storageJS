@@ -1,4 +1,4 @@
-const { pool } = require('./lib/db');
+const { pool } = require('../config/db');
 
 const insertData = async() => {
     const [name, color] = process.argv.slice(2);

@@ -1,6 +1,6 @@
 'use strict';
 
-const { pool } = require('./lib/db');
+const { pool } = require('../config/db');
 
 const modifyData = async () => {
     const [id, name] = process.argv.slice(2);
