@@ -1,7 +1,6 @@
 const { pool } = require('../config/db');
 
-module.exports = async() => {
-    const [name, color] = process.argv.slice(2);
+module.exports = async(name, color) => {
     try {        
         const res = await pool.query(
             'INSERT INTO shark (name, color) VALUES ($1, $2)', 
